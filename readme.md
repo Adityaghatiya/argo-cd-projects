@@ -1,4 +1,5 @@
-![standalone_argo_cd](https://github.com/user-attachments/assets/0e63a0df-377d-4009-a67d-577c71ce49c1)
+
+![standalone_argo_cd11](https://github.com/user-attachments/assets/8b3e4d80-dbe4-4c17-9fd3-d879080afcec)
 
 🚀 Argo CD on GKE with Helm - Standalone Project
 This project demonstrates how to set up Argo CD on a Google Kubernetes Engine (GKE) cluster using Helm in a standalone configuration. This setup provides a complete GitOps solution for continuous deployment of applications.
@@ -166,6 +167,7 @@ replicaCount: 3
 Commit and push the change to your Git repository
 
 <img width="1366" height="691" alt="image" src="https://github.com/user-attachments/assets/96fdcb98-7250-4494-b58c-175c09d424c9" />
+
 
 
 
