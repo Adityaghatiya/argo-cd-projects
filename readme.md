@@ -82,14 +82,14 @@ kubectl edit svc argocd-server -n argocd
 ```
 
 Find:
-
+```
 type: ClusterIP
-
+```
 
 Change it to:
-
+```
 type: LoadBalancer
-
+```
 6. Verify Deployment
 
 Check if Argo CD pods are running:
@@ -147,8 +147,21 @@ Use these credentials to log in to the dashboard.
 The application is created inside the Argo CD dashboard from the GitHub YAML file:
 <img width="1280" height="637" alt="image" src="https://github.com/user-attachments/assets/e68857ab-64fa-4842-a1f4-1e4a4ec28c65" />
 
+🔹 Testing and Resyncing Applications
+
+After deploying your application via Argo CD, you can verify that the GitOps workflow is working correctly by making changes in your Git repository and observing the automatic sync.
+
+1. Make a change in your application
+
+For example, update the replicas in standalone/app/helloworld/values.yaml:
+```
+replicaCount: 3
+``
+Commit and push the change to your Git repository
+
 When opening the application, the required CD deployment is visible:
 <img width="1366" height="637" alt="image" src="https://github.com/user-attachments/assets/256e21d7-4f83-44e9-a948-318f4d58042c" />
+
 
 
 
