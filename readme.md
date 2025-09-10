@@ -1,7 +1,19 @@
-🚀 Argo CD on GKE with Helm
+🚀 Argo CD on GKE with Helm - Standalone Project
+This project demonstrates how to set up Argo CD on a Google Kubernetes Engine (GKE) cluster using Helm in a standalone configuration. This setup provides a complete GitOps solution for continuous deployment of applications.
+📁 Project Structure
 
-This project demonstrates how to set up Argo CD on a Google Kubernetes Engine (GKE) cluster using Helm.
-
+```
+staldlone/
+├── app/helloworld/
+│   ├── templates/
+│   │   └── deployment.yaml
+│   │   └── service.yaml
+│   ├── Chart.yaml
+│   └── values.yaml
+├── argocd-files/
+│   └── application1.yaml
+└── readme.md
+```
 🔹 What is GitOps?
 
 GitOps is a modern way of implementing Continuous Deployment (CD) for cloud-native applications.
@@ -135,4 +147,5 @@ The application is created inside the Argo CD dashboard from the GitHub YAML fil
 
 When opening the application, the required CD deployment is visible:
 <img width="1366" height="637" alt="image" src="https://github.com/user-attachments/assets/256e21d7-4f83-44e9-a948-318f4d58042c" />
+
 
