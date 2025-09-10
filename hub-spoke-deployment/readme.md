@@ -1,2 +1,1 @@
-![hub_spoke](https://github.com/user-attachments/assets/662942bc-1984-483a-819b-976754535e1e)
-
+![hub_spoke11](https://github.com/user-attachments/assets/bdedd7ac-1788-461e-bb51-64c86715bf25)
