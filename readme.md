@@ -147,6 +147,9 @@ Use these credentials to log in to the dashboard.
 The application is created inside the Argo CD dashboard from the GitHub YAML file:
 <img width="1280" height="637" alt="image" src="https://github.com/user-attachments/assets/e68857ab-64fa-4842-a1f4-1e4a4ec28c65" />
 
+When opening the application, the required CD deployment is visible:
+<img width="1366" height="637" alt="image" src="https://github.com/user-attachments/assets/256e21d7-4f83-44e9-a948-318f4d58042c" />
+
 🔹 Testing and Resyncing Applications
 
 After deploying your application via Argo CD, you can verify that the GitOps workflow is working correctly by making changes in your Git repository and observing the automatic sync.
@@ -159,8 +162,9 @@ replicaCount: 3
 ``
 Commit and push the change to your Git repository
 
-When opening the application, the required CD deployment is visible:
-<img width="1366" height="637" alt="image" src="https://github.com/user-attachments/assets/256e21d7-4f83-44e9-a948-318f4d58042c" />
+<img width="1366" height="691" alt="image" src="https://github.com/user-attachments/assets/96fdcb98-7250-4494-b58c-175c09d424c9" />
+
+
 
 
 
