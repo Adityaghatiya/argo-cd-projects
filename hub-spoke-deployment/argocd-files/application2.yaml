@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/Adityaghatiya/argo-cd-projects.git'
     targetRevision: main
-    path: hub-spoke-deployment/app/helloworld1-application
+    path: hub-spoke-deployment/app/helloworld12-application
     helm:
       releaseName: helloworld2
   destination:
