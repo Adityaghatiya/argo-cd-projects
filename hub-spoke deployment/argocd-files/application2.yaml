@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helloworld1
+  name: helloworld2
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: 'https://github.com/Adityaghatiya/argo-cd-projects.git'
     targetRevision: main
-    path: staldlone/app/helloworld1
+    path: staldlone/app/helloworld2-application
     helm:
-      releaseName: helloworld
+      releaseName: helloworld2
   destination:
-    server: https://kubernetes.default.svc
+    server: https://34.63.106.62
     namespace: default
   syncPolicy:
     automated:
