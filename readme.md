@@ -80,6 +80,8 @@ argocd-server   LoadBalancer   10.96.128.34   34.118.230.45   80:31111/TCP,443:3
 🔹 Open in browser:
 
 https://<EXTERNAL-IP>
+<img width="1366" height="695" alt="image" src="https://github.com/user-attachments/assets/ea86bcf0-0a0d-4ad5-b394-676ea78adb25" />
+
 
 9. Login to Argo CD
 
@@ -92,3 +94,4 @@ kubectl -n argocd get secret argocd-initial-admin-secret \
 
 
 Use these credentials to log in to the dashboard.
+
