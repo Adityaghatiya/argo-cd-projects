@@ -1,8 +1,9 @@
 🚀 Argo CD on GKE with Helm - Standalone Project
 This project demonstrates how to set up Argo CD on a Google Kubernetes Engine (GKE) cluster using Helm in a standalone configuration. This setup provides a complete GitOps solution for continuous deployment of applications.
-📁 Project Structure
+
 
 ```
+📁 Project Structure
 staldlone/
 ├── app/helloworld/
 │   ├── templates/
@@ -14,6 +15,7 @@ staldlone/
 │   └── application1.yaml
 └── readme.md
 ```
+
 🔹 What is GitOps?
 
 GitOps is a modern way of implementing Continuous Deployment (CD) for cloud-native applications.
@@ -21,31 +23,31 @@ It uses Git as the single source of truth to deliver both applications and infra
 
 In GitOps:
 
-All configuration and deployment manifests are stored in Git.
+1.All configuration and deployment manifests are stored in Git.
 
-Argo CD continuously monitors Git repositories.
+2.Argo CD continuously monitors Git repositories.
 
-Any change in Git is automatically synced and applied to the Kubernetes cluster.
+3.Any change in Git is automatically synced and applied to the Kubernetes cluster.
 
 This ensures deployments are declarative, version-controlled, and auditable.
 
 🔹 What is Standalone Argo CD?
 In a standalone setup, Argo CD operates as an independent deployment management system where:
 
-Argo CD runs in its own dedicated namespace
-Applications are managed through individual Application manifests
-Each application can have its own Git repository source
-Provides maximum flexibility for application deployment strategies
+1.Argo CD runs in its own dedicated namespace
+2.Applications are managed through individual Application manifests
+3.Each application can have its own Git repository source
+4.Provides maximum flexibility for application deployment strategies
 
 📋 Prerequisites
 
-A GCP Project (with billing enabled)
+i.A GCP Project (with billing enabled)
 
-GKE Cluster created and running
+ii.GKE Cluster created and running
 
-Google Cloud SDK (Cloud Shell is recommended)
+iii.Google Cloud SDK (Cloud Shell is recommended)
 
-Helm installed
+iv.Helm installed
 
 ⚙️ Setup Instructions
 1. Connect to GKE Cluster
@@ -147,5 +149,6 @@ The application is created inside the Argo CD dashboard from the GitHub YAML fil
 
 When opening the application, the required CD deployment is visible:
 <img width="1366" height="637" alt="image" src="https://github.com/user-attachments/assets/256e21d7-4f83-44e9-a948-318f4d58042c" />
+
 
 
