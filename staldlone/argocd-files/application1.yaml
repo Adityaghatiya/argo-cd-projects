@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app/helloworld
+  name: helloworld
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: 'https://github.com/Adityaghatiya/argo-cd-projects.git'
     targetRevision: main
-    path: helloworld
+    path: staldlone/app/helloworld
     helm:
       releaseName: helloworld
   destination:
