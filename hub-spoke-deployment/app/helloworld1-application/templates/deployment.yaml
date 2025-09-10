@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: { { .Chart.Name } }
+  name: {{ .Chart.Name }}
 spec:
-  replicas: { { .Values.replicaCount } }
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: { { .Chart.Name } }
+      app: {{ .Chart.Name }}
   template:
     metadata:
       labels:
-        app: { { .Chart.Name } }
+        app: {{ .Chart.Name }}
     spec:
       containers:
         - name: nginx
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: { { .Values.image.pullPolicy } }
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 80
           volumeMounts:
@@ -37,6 +37,6 @@ data:
     <body>
     <h1>Web App 01</h1>
     <h1>Hello World from Helm & ArgoCD</h1>
-    <h1>Hello World from Aditya GHatiya</h1>
+    <h1>Hello World from Aditya Ghatiya</h1>
     </body>
     </html>
