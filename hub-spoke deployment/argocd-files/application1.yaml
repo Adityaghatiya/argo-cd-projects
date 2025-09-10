@@ -8,11 +8,11 @@ spec:
   source:
     repoURL: 'https://github.com/Adityaghatiya/argo-cd-projects.git'
     targetRevision: main
-    path: staldlone/app/helloworld2
+    path: staldlone/app/helloworld1-application
     helm:
-      releaseName: helloworld
+      releaseName: helloworld1
   destination:
-    server: https://kubernetes.default.svc
+    server:https://34.135.230.108
     namespace: default
   syncPolicy:
     automated:
