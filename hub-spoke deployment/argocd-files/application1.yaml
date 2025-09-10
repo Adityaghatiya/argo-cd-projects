@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/Adityaghatiya/argo-cd-projects.git'
     targetRevision: main
-    path: staldlone/app/helloworld1-application
+    path: standalone/app/helloworld1-application
     helm:
       releaseName: helloworld1
   destination:
