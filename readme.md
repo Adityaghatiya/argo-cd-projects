@@ -17,6 +17,14 @@ Any change in Git is automatically synced and applied to the Kubernetes cluster.
 
 This ensures deployments are declarative, version-controlled, and auditable.
 
+🔹 What is Standalone Argo CD?
+In a standalone setup, Argo CD operates as an independent deployment management system where:
+
+Argo CD runs in its own dedicated namespace
+Applications are managed through individual Application manifests
+Each application can have its own Git repository source
+Provides maximum flexibility for application deployment strategies
+
 📋 Prerequisites
 
 A GCP Project (with billing enabled)
@@ -127,3 +135,4 @@ The application is created inside the Argo CD dashboard from the GitHub YAML fil
 
 When opening the application, the required CD deployment is visible:
 <img width="1366" height="637" alt="image" src="https://github.com/user-attachments/assets/256e21d7-4f83-44e9-a948-318f4d58042c" />
+
