@@ -29,7 +29,8 @@ Helm installed
 
 ⚙️ Setup Instructions
 1. Connect to GKE Cluster
-```gcloud container clusters get-credentials argocd-cluster \
+```
+gcloud container clusters get-credentials argocd-cluster \
   --zone us-central1-a \
   --project modern-media-471511-c9
 ```
@@ -227,6 +228,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret \
 
 The application is created from the GitHub YAML file and visible in the Argo CD UI.
 When you modify something in GitHub, Argo CD will automatically sync the changes to your cluster. ✅
+
 
 
 
