@@ -12,7 +12,7 @@ spec:
     helm:
       releaseName: helloworld1
   destination:
-    server:https://34.135.230.108
+    server: https://34.135.230.108
     namespace: default
   syncPolicy:
     automated:
