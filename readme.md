@@ -159,10 +159,12 @@ After deploying your application via Argo CD, you can verify that the GitOps wor
 For example, update the replicas in standalone/app/helloworld/values.yaml:
 ```
 replicaCount: 3
-``
+```
+
 Commit and push the change to your Git repository
 
 <img width="1366" height="691" alt="image" src="https://github.com/user-attachments/assets/96fdcb98-7250-4494-b58c-175c09d424c9" />
+
 
 
 
