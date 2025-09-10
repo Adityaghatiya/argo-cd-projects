@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+      - name: nginx
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: html
+        configMap:
+          name: helloworld-html
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: helloworld-html
+data:
+  index.html: |
+    <html>
+    <head><title>Hello World</title></head>
+    <body>
+    <h1>Web App 01</h1>
+    <h1>Hello World from Helm & ArgoCD</h1>
+    <h1>Hello World from Aditya GHatiya</h1>
+    </body>
+    </html>
