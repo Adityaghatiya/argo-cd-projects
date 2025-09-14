@@ -336,3 +336,20 @@ gcloud container fleet config-management enable --project=your-hub-project
 # Enable Multi Cluster Ingress if needed
 gcloud container fleet ingress enable --project=your-hub-project
 ```
+Step 5: Argo CD Installation & Configuration
+#Install Argo CD on Hub Cluster
+```
+# Get hub cluster credentials
+gcloud container clusters get-credentials hub-cluster \
+    --zone=us-central1-a \
+    --project=your-hub-project
+
+# Create namespace
+kubectl create namespace argocd
+
+# Install Argo CD
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# Wait for deployment
+kubectl wait --for=condition=available --timeout=300s deployment/argocd-server -n argocd
+```
