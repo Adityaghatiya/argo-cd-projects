@@ -427,22 +427,78 @@ kubectl -n argocd get secret argocd-initial-admin-secret \
 
 Use these credentials to log in to the dashboard.
 
-10. Application in Argo CD Dashboard
 
+
+#Add Spoke Clusters to Argo CD
+#Add Development Cluster (Spoke1)
+```
+# Get spoke1 dev cluster context
+gcloud container clusters get-credentials dev-cluster \
+    --zone=us-central1-a \
+    --project=your-dev-project
+
+# Add development cluster to Argo CD
+argocd cluster add gke_your-dev-project_us-central1-a_dev-cluster \
+    --name=dev-cluster \
+    --server-side-apply \
+    --label=environment=development \
+    --label=project=spoke1-dev
+```
+
+#Add Production Cluster (Spoke2)
+```
+# Get spoke2 prod cluster context
+gcloud container clusters get-credentials prod-cluster \
+    --zone=us-central1-a \
+    --project=your-prod-project
+
+# Add production cluster to Argo CD
+argocd cluster add gke_your-prod-project_us-central1-a_prod-cluster \
+    --name=prod-cluster \
+    --server-side-apply \
+    --label=environment=production \
+    --label=project=spoke2-prod
+```
+
+#Configure Argo CD for Multi-Environment Deployment
+#Create Application Projects for Environment Separation
+```
+# Login to Argo CD CLI
+argocd login <ARGOCD_SERVER_IP>:8080
+
+# Create development project
+argocd proj create dev-project \
+    --description="Development environment applications" \
+    --dest=https://kubernetes.default.svc,dev-cluster \
+    --src="*"
+
+# Create production project  
+argocd proj create prod-project \
+    --description="Production environment applications" \
+    --dest=https://kubernetes.default.svc,prod-cluster \
+    --src="*"
+```
+
+#Verify Argo CD Cluster Registration
+
+```
+# List registered clusters
+argocd cluster list
+
+# Expected output should show all clusters (hub, dev, prod)
+```
+
+#Application in Argo CD Dashboard
 The application is created inside the Argo CD dashboard from the GitHub YAML file:
-<img width="1280" height="637" alt="image" src="https://github.com/user-attachments/assets/e68857ab-64fa-4842-a1f4-1e4a4ec28c65" />
+<img width="979" height="499" alt="image" src="https://github.com/user-attachments/assets/39570227-c0ff-43a9-8edd-0bc84dc8acdb" />
 
 When opening the application, the required CD deployment is visible:
 
-🔹 Testing and Resyncing Applications
+<img width="979" height="500" alt="image" src="https://github.com/user-attachments/assets/f63d6f4f-feda-4ef6-8d09-c16402cbf665" />
+<img width="979" height="500" alt="image" src="https://github.com/user-attachments/assets/87fb5fd0-e458-4136-9e60-d644b19b75ee" />
 
-After deploying your application via Argo CD, you can verify that the GitOps workflow is working correctly by making changes in your Git repository and observing the automatic sync.
+On checking the web application on the endpoint of particular cluster:-
+<img width="979" height="330" alt="image" src="https://github.com/user-attachments/assets/ae5f6d71-c39e-4a42-bebf-98d88f943e97" />
 
-1. Make a change in your application
+<img width="979" height="267" alt="image" src="https://github.com/user-attachments/assets/f08e0bd5-dfa7-4eb1-ac47-81d90e8e270c" />
 
-For example, update the replicas in standalone/app/helloworld/values.yaml:
-```
-replicaCount: 3
-```
-
-Commit and push the change to your Git repository
