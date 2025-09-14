@@ -357,7 +357,7 @@ helm install my-argo-cd argo/argo-cd \
 
 ```
 
-#Expose Argo CD Server
+# Expose Argo CD Server
 Expose Argo CD Server
 
 Edit the Argo CD service to use a LoadBalancer:
@@ -413,7 +413,7 @@ https://<EXTERNAL-IP>
 ```
 
 <img width="1366" height="695" alt="image" src="https://github.com/user-attachments/assets/ea86bcf0-0a0d-4ad5-b394-676ea78adb25" />
-#. Login to Argo CD
+# Login to Argo CD
 
 Username: admin
 
@@ -429,8 +429,8 @@ Use these credentials to log in to the dashboard.
 
 
 
-#Add Spoke Clusters to Argo CD
-#Add Development Cluster (Spoke1)
+# Add Spoke Clusters to Argo CD
+# Add Development Cluster (Spoke1)
 ```
 # Get spoke1 dev cluster context
 gcloud container clusters get-credentials dev-cluster \
@@ -445,7 +445,7 @@ argocd cluster add gke_your-dev-project_us-central1-a_dev-cluster \
     --label=project=spoke1-dev
 ```
 
-#Add Production Cluster (Spoke2)
+# Add Production Cluster (Spoke2)
 ```
 # Get spoke2 prod cluster context
 gcloud container clusters get-credentials prod-cluster \
@@ -460,8 +460,8 @@ argocd cluster add gke_your-prod-project_us-central1-a_prod-cluster \
     --label=project=spoke2-prod
 ```
 
-#Configure Argo CD for Multi-Environment Deployment
-#Create Application Projects for Environment Separation
+# Configure Argo CD for Multi-Environment Deployment
+# Create Application Projects for Environment Separation
 ```
 # Login to Argo CD CLI
 argocd login <ARGOCD_SERVER_IP>:8080
@@ -479,7 +479,7 @@ argocd proj create prod-project \
     --src="*"
 ```
 
-#Verify Argo CD Cluster Registration
+# Verify Argo CD Cluster Registration
 
 ```
 # List registered clusters
