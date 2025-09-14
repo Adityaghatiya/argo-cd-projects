@@ -1,5 +1,8 @@
 ## 🚀 GKE Multi-Cluster GitOps with Argo CD
-![hub_spoke11](https://github.com/user-attachments/assets/bdedd7ac-1788-461e-bb51-64c86715bf25)
+
+
+![hub_spoke321](https://github.com/user-attachments/assets/3a006ed7-c915-4071-b4b8-2a18048911d7)
+
 A comprehensive guide for setting up a secure, multi-cluster Kubernetes environment on Google Cloud Platform using GitOps principles. This setup features a centralized control cluster running Argo CD that manages deployments across multiple target clusters in separate GCP projects.
 
 ## Project Architecture
@@ -508,5 +511,6 @@ On checking the web application on the endpoint of particular cluster:-
 <img width="979" height="330" alt="image" src="https://github.com/user-attachments/assets/ae5f6d71-c39e-4a42-bebf-98d88f943e97" />
 
 <img width="979" height="267" alt="image" src="https://github.com/user-attachments/assets/f08e0bd5-dfa7-4eb1-ac47-81d90e8e270c" />
+
 
 
