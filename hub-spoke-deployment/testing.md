@@ -40,3 +40,40 @@ gcloud compute networks subnets create hub-subnet \
     --secondary-range=hub-pods=10.11.0.0/16,hub-services=10.12.0.0/20 \
     --enable-private-ip-google-access
 ```
+
+Spoke1 Project - Development Environment
+```
+# Create VPC for development project
+gcloud compute networks create spoke1-vpc \
+    --project=your-dev-project \
+    --subnet-mode=custom \
+    --description="Spoke1 VPC for development workloads"
+
+# Create subnet for dev cluster
+gcloud compute networks subnets create spoke1-subnet \
+    --project=your-dev-project \
+    --network=spoke1-vpc \
+    --range=10.20.0.0/24 \
+    --region=us-central1 \
+    --secondary-range=spoke1-pods=10.21.0.0/16,spoke1-services=10.22.0.0/20 \
+    --enable-private-ip-google-access
+```
+
+Spoke2 Project - Production Environment
+
+```
+# Create VPC for production project
+gcloud compute networks create spoke2-vpc \
+    --project=your-prod-project \
+    --subnet-mode=custom \
+    --description="Spoke2 VPC for production workloads"
+
+# Create subnet for prod cluster
+gcloud compute networks subnets create spoke2-subnet \
+    --project=your-prod-project \
+    --network=spoke2-vpc \
+    --range=10.30.0.0/24 \
+    --region=us-central1 \
+    --secondary-range=spoke2-pods=10.31.0.0/16,spoke2-services=10.32.0.0/20 \
+    --enable-private-ip-google-access
+```
