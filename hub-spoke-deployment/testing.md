@@ -347,9 +347,12 @@ gcloud container clusters get-credentials hub-cluster \
 # Create namespace
 kubectl create namespace argocd
 
-# Install Argo CD
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+# Add Argo Helm Repo
+helm repo add argo https://argoproj.github.io/argo-helm
 
-# Wait for deployment
-kubectl wait --for=condition=available --timeout=300s deployment/argocd-server -n argocd
+# Install Argo CD via Helm
+helm install my-argo-cd argo/argo-cd \
+  --version 8.3.5 \
+  --namespace argocd
+
 ```
