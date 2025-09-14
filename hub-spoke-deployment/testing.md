@@ -375,18 +375,18 @@ Change it to:
 ```
 type: LoadBalancer
 ```
-6. Verify Deployment
+# Verify Deployment
 
 Check if Argo CD pods are running:
 ```
 kubectl get pods -n argocd
 ```
 
-Check cluster nodes:
+# Check cluster nodes:
 ```
 kubectl get nodes
 ```
-7. Deploy an Application
+# Deploy an Application
 
 Apply your application YAML file:
 
@@ -394,7 +394,7 @@ Apply your application YAML file:
 kubectl apply -n argocd -f https://raw.githubusercontent.com/Adityaghatiya/argo-cd-projects/main/staldlone/argocd-files/application1.yaml
 ```
 
-8. Access the Argo CD Dashboard
+# Access the Argo CD Dashboard
 
 🔹 Get the external IP:
 ```
@@ -413,7 +413,7 @@ https://<EXTERNAL-IP>
 ```
 
 <img width="1366" height="695" alt="image" src="https://github.com/user-attachments/assets/ea86bcf0-0a0d-4ad5-b394-676ea78adb25" />
-9. Login to Argo CD
+#. Login to Argo CD
 
 Username: admin
 
