@@ -124,3 +124,15 @@ gcloud compute networks peerings create spoke2-to-hub \
     --peer-network=hub-vpc \
     --auto-create-routes
 ```
+Verify VPC Peering Status
+
+```
+# Check hub peering status
+gcloud compute networks peerings list --project=your-hub-project
+
+# Check spoke1 peering status  
+gcloud compute networks peerings list --project=your-dev-project
+
+# Check spoke2 peering status
+gcloud compute networks peerings list --project=your-prod-project
+```
