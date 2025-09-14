@@ -329,3 +329,10 @@ gcloud container fleet memberships register spoke2-prod-cluster-membership \
 gcloud container fleet memberships list --project=your-hub-project
 ```
 # Expected output should show all three clusters 
+```
+# Enable Config Management for fleet-wide policies
+gcloud container fleet config-management enable --project=your-hub-project
+
+# Enable Multi Cluster Ingress if needed
+gcloud container fleet ingress enable --project=your-hub-project
+```
