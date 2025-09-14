@@ -84,3 +84,43 @@ gcloud compute networks subnets create spoke2-subnet \
 | **Hub**        | `hub-vpc`  | `10.10.0.0/24` | `10.11.0.0/16` | `10.12.0.0/20` | Control Plane |
 | **Development**| `spoke1-vpc` | `10.20.0.0/24` | `10.21.0.0/16` | `10.22.0.0/20` | Development   |
 | **Production** | `spoke2-vpc` | `10.30.0.0/24` | `10.31.0.0/16` | `10.32.0.0/20` | Production    |
+
+Establish VPC Peering (Hub-to-Spoke Architecture)
+Hub to Spoke1 Peering
+
+```
+# Create peering from hub to spoke1
+gcloud compute networks peerings create hub-to-spoke1 \
+    --project=your-hub-project \
+    --network=hub-vpc \
+    --peer-project=your-dev-project \
+    --peer-network=spoke1-vpc \
+    --auto-create-routes
+
+# Create peering from spoke1 to hub
+gcloud compute networks peerings create spoke1-to-hub \
+    --project=your-dev-project \
+    --network=spoke1-vpc \
+    --peer-project=your-hub-project \
+    --peer-network=hub-vpc \
+    --auto-create-routes
+```
+
+Hub to Spoke2 Peering
+```
+# Create peering from hub to spoke2
+gcloud compute networks peerings create hub-to-spoke2 \
+    --project=your-hub-project \
+    --network=hub-vpc \
+    --peer-project=your-prod-project \
+    --peer-network=spoke2-vpc \
+    --auto-create-routes
+
+# Create peering from spoke2 to hub
+gcloud compute networks peerings create spoke2-to-hub \
+    --project=your-prod-project \
+    --network=spoke2-vpc \
+    --peer-project=your-hub-project \
+    --peer-network=hub-vpc \
+    --auto-create-routes
+```
