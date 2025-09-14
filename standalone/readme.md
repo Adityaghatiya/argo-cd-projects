@@ -61,7 +61,9 @@ gcloud container clusters get-credentials argocd-cluster \
   --project modern-media-471511-c9
 ```
 <img width="1308" height="50" alt="image" src="https://github.com/user-attachments/assets/108be496-d56b-4e2a-8197-68d0780cb941" />
+
 2. Add Argo Helm Repo
+
 ```
 helm repo add argo https://argoproj.github.io/argo-helm
 ```
