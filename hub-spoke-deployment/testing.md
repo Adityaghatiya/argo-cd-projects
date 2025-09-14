@@ -19,3 +19,24 @@ A comprehensive guide for setting up a secure, multi-cluster Kubernetes environm
 | **VPC Peering**  | Cross-project | Bidirectional   | Secure private connectivity         |
 | **Fleet Management** | Centralized   | All clusters    | Unified monitoring and management   |
 
+🚀 Implementation Guide
+Step 1: Network Foundation
+Create VPC Networks with Non-Overlapping CIDR Ranges
+Hub Project - GitOps Control Plane
+
+```
+# Create VPC for hub project
+gcloud compute networks create hub-vpc \
+    --project=your-hub-project \
+    --subnet-mode=custom \
+    --description="Hub VPC for Argo CD control plane"
+
+# Create subnet for hub cluster
+gcloud compute networks subnets create hub-subnet \
+    --project=your-hub-project \
+    --network=hub-vpc \
+    --range=10.10.0.0/24 \
+    --region=us-central1 \
+    --secondary-range=hub-pods=10.11.0.0/16,hub-services=10.12.0.0/20 \
+    --enable-private-ip-google-access
+```
