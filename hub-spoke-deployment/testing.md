@@ -356,3 +356,93 @@ helm install my-argo-cd argo/argo-cd \
   --namespace argocd
 
 ```
+
+#Expose Argo CD Server
+Expose Argo CD Server
+
+Edit the Argo CD service to use a LoadBalancer:
+
+```
+kubectl edit svc argocd-server -n argocd
+```
+
+Find:
+```
+type: ClusterIP
+```
+
+Change it to:
+```
+type: LoadBalancer
+```
+6. Verify Deployment
+
+Check if Argo CD pods are running:
+```
+kubectl get pods -n argocd
+```
+
+Check cluster nodes:
+```
+kubectl get nodes
+```
+7. Deploy an Application
+
+Apply your application YAML file:
+
+```
+kubectl apply -n argocd -f https://raw.githubusercontent.com/Adityaghatiya/argo-cd-projects/main/staldlone/argocd-files/application1.yaml
+```
+
+8. Access the Argo CD Dashboard
+
+🔹 Get the external IP:
+```
+kubectl get svc argocd-server -n argocd
+```
+```
+Example output:
+
+NAME            TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)
+argocd-server   LoadBalancer   10.96.128.34   34.118.230.45   80:31111/TCP,443:31802/TCP
+```
+
+🔹 Open in browser:
+```
+https://<EXTERNAL-IP>
+```
+
+<img width="1366" height="695" alt="image" src="https://github.com/user-attachments/assets/ea86bcf0-0a0d-4ad5-b394-676ea78adb25" />
+9. Login to Argo CD
+
+Username: admin
+
+Password:
+```
+kubectl -n argocd get secret argocd-initial-admin-secret \
+  -o jsonpath="{.data.password}" | base64 -d; echo
+```
+
+<img width="1219" height="36" alt="image" src="https://github.com/user-attachments/assets/bc2573cc-9b62-45b8-b3c1-2cf751a92770" />
+
+Use these credentials to log in to the dashboard.
+
+10. Application in Argo CD Dashboard
+
+The application is created inside the Argo CD dashboard from the GitHub YAML file:
+<img width="1280" height="637" alt="image" src="https://github.com/user-attachments/assets/e68857ab-64fa-4842-a1f4-1e4a4ec28c65" />
+
+When opening the application, the required CD deployment is visible:
+
+🔹 Testing and Resyncing Applications
+
+After deploying your application via Argo CD, you can verify that the GitOps workflow is working correctly by making changes in your Git repository and observing the automatic sync.
+
+1. Make a change in your application
+
+For example, update the replicas in standalone/app/helloworld/values.yaml:
+```
+replicaCount: 3
+```
+
+Commit and push the change to your Git repository
