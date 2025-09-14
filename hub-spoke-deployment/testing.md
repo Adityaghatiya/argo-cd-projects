@@ -77,3 +77,10 @@ gcloud compute networks subnets create spoke2-subnet \
     --secondary-range=spoke2-pods=10.31.0.0/16,spoke2-services=10.32.0.0/20 \
     --enable-private-ip-google-access
 ```
+## Network CIDR Allocation Summary
+
+| Project Type   | VPC Name   | Subnet CIDR   | Pod CIDR     | Service CIDR  | Purpose       |
+|----------------|------------|---------------|--------------|---------------|---------------|
+| **Hub**        | `hub-vpc`  | `10.10.0.0/24` | `10.11.0.0/16` | `10.12.0.0/20` | Control Plane |
+| **Development**| `spoke1-vpc` | `10.20.0.0/24` | `10.21.0.0/16` | `10.22.0.0/20` | Development   |
+| **Production** | `spoke2-vpc` | `10.30.0.0/24` | `10.31.0.0/16` | `10.32.0.0/20` | Production    |
