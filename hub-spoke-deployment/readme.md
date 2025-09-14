@@ -341,13 +341,7 @@ Step 5: Argo CD Installation & Configuration
 ```
 
 # For accessing the private cluster create the baiston host vm in same network.
-![hub_spoke11](https://github.com/user-attachments/assets/bdedd7ac-1788-461e-bb51-64c86715bf25)
-
-
-
-<img width="1212" height="458" alt="image" src="https://github.com/user-attachments/assets/e55b824e-262f-4209-afe1-95f6aac19dcb" />
-
-<img width="1366" height="657" alt="image" src="https://github.com/user-attachments/assets/af21e8bb-e252-45ab-8bb7-7727150569ea" />
+<img width="1366" height="380" alt="image" src="https://github.com/user-attachments/assets/5e712025-a308-4b5c-8d51-5da394cfecba" />
 
 
 # Get hub cluster credentials
@@ -514,4 +508,5 @@ On checking the web application on the endpoint of particular cluster:-
 <img width="979" height="330" alt="image" src="https://github.com/user-attachments/assets/ae5f6d71-c39e-4a42-bebf-98d88f943e97" />
 
 <img width="979" height="267" alt="image" src="https://github.com/user-attachments/assets/f08e0bd5-dfa7-4eb1-ac47-81d90e8e270c" />
+
 
